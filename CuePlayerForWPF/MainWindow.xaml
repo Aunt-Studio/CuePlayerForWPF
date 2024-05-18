@@ -5,8 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CuePlayerForWPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="Cue Player Preparing" Height="566" Width="1060" Foreground="White" Background="#FF1E212B" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
+    <Grid OpacityMask="#FFEDEDED">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="210*"/>
+            <RowDefinition Height="341*"/>
+        </Grid.RowDefinitions>
+        <Label Content="Cue Player for WPF" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="477" Foreground="White" FontSize="48" FontWeight="Bold" HorizontalContentAlignment="Center"/>
+        <Label Content="Originally Designed for 他们的低语" HorizontalAlignment="Center" VerticalAlignment="Center" Width="398" FontSize="22" HorizontalContentAlignment="Center" Foreground="#FF775F5F"/>
+        <Label Content="Developed by Aunt__nuozhen @ Aunt Studio with ❤" HorizontalAlignment="Center" Margin="0,272,0,0" VerticalAlignment="Top" Width="398" Foreground="#FFFF6767" HorizontalContentAlignment="Center" FontSize="14" Grid.Row="1"/>
+        <TextBlock HorizontalAlignment="Left" Height="26" TextWrapping="Wrap" VerticalAlignment="Top" Width="206" FontSize="22" Margin="129,206,0,0" Grid.RowSpan="2"><Run Language="zh-cn" Text="系统环境兼容性检查"/></TextBlock>
+        <Rectangle HorizontalAlignment="Center" Height="7" Margin="0,145,0,0" VerticalAlignment="Top" Width="950" Fill="#FF313A5B"/>
+        <Rectangle x:Name="StatSysEnv" HorizontalAlignment="Left" Height="22" Margin="90,209,0,0" VerticalAlignment="Top" Width="11" Fill="#FFD4D4D4" Grid.RowSpan="2" MouseDown="StatSysEnv_MouseDown"/>
+        <TextBlock HorizontalAlignment="Left" Height="26" TextWrapping="Wrap" VerticalAlignment="Top" Width="206" FontSize="22" Margin="129,80,0,0" Grid.Row="1"><Run Language="zh-cn" Text="资源完整性检查"/></TextBlock>
+        <Rectangle x:Name="StatResCheck" HorizontalAlignment="Left" Height="22" Margin="90,82,0,0" VerticalAlignment="Top" Width="11" Fill="#FFD4D4D4" Grid.Row="1" MouseDown="StatResCheck_MouseDown"/>
+        <TextBlock HorizontalAlignment="Left" Height="26" TextWrapping="Wrap" VerticalAlignment="Top" Width="206" FontSize="22" Margin="689,204,0,0" Grid.RowSpan="2"><Run Language="zh-cn" Text="初始化场景资源"/></TextBlock>
+        <Rectangle x:Name="StatResInit" HorizontalAlignment="Left" Height="22" Margin="650,206,0,0" VerticalAlignment="Top" Width="11" Fill="#FFD4D4D4" Grid.RowSpan="2"/>
+        <TextBlock HorizontalAlignment="Left" Height="26" TextWrapping="Wrap" VerticalAlignment="Top" Width="206" FontSize="22" Margin="689,76,0,0" Grid.Row="1"><Run Language="zh-cn" Text="预加载资源"/></TextBlock>
+        <Rectangle x:Name="StatResPreLoad" HorizontalAlignment="Left" Height="22" Margin="650,78,0,0" VerticalAlignment="Top" Width="11" Fill="#FFD4D4D4" Grid.Row="1"/>
+        <Button Content="开始初始化" HorizontalAlignment="Center" Height="61" Margin="0,170,0,0" Grid.Row="1" VerticalAlignment="Top" Width="310" FontSize="18" Click="Button_Click"/>
+
     </Grid>
 </Window>

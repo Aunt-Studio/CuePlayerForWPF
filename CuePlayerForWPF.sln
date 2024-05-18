@@ -5,6 +5,8 @@ VisualStudioVersion = 17.9.34526.213
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CuePlayerForWPF", "CuePlayerForWPF\CuePlayerForWPF.csproj", "{D88177CC-2918-42F3-9100-5584C40DAD6D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HashGenerator", "HashGenerator\HashGenerator.csproj", "{9CC38C38-1884-4F54-89E4-2832E391DF83}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{D88177CC-2918-42F3-9100-5584C40DAD6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D88177CC-2918-42F3-9100-5584C40DAD6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D88177CC-2918-42F3-9100-5584C40DAD6D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9CC38C38-1884-4F54-89E4-2832E391DF83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CC38C38-1884-4F54-89E4-2832E391DF83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CC38C38-1884-4F54-89E4-2832E391DF83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CC38C38-1884-4F54-89E4-2832E391DF83}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
