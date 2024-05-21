@@ -10,6 +10,9 @@
         <MediaElement HorizontalAlignment="Left" Height="1080" VerticalAlignment="Top" Width="1920" UnloadedBehavior="Manual" ScrubbingEnabled="True"/>
         <MediaElement HorizontalAlignment="Left" Height="100" Margin="1816,0,0,0" VerticalAlignment="Top" Width="100" ScrollViewer.VerticalScrollBarVisibility="Disabled" Visibility="Hidden" UnloadedBehavior="Manual"/>
         <TextBlock HorizontalAlignment="Center" Height="145" Margin="0,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="1712" FontSize="48" Foreground="White" FontWeight="Bold" TextAlignment="Center"><Run Language="zh-cn" Text="你好。"/></TextBlock>
-
+        
     </Grid>
+    <Window.InputBindings>
+        <KeyBinding Key="Enter" Command="{Binding NextLineCommand}" />
+    </Window.InputBindings>
 </Window>
