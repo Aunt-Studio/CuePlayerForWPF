@@ -71,9 +71,9 @@ namespace CuePlayerForWPF
             {
                 StatSysEnv.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF5DFF58"));
             });
-            
+
         }
-        
+
         private async Task ResCheck()
         {
             checkHashResult = "";
@@ -124,12 +124,12 @@ namespace CuePlayerForWPF
                 if (modifiedFiles.Count > 0 || missingFiles.Count > 0)
                 {
                     foundError = true;
-                    
+
                     Dispatcher.Invoke(() =>
                     {
                         StatResCheck.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFF73434"));  //显示为失败，红色。
                     });
-                    
+
                 }
                 else
                 {
@@ -137,11 +137,11 @@ namespace CuePlayerForWPF
                     {
                         StatResCheck.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF5DFF58"));  //显示为成功，绿色。
                     });
-                    
+
                 }
 
             });
-            
+
 
         }
 
@@ -149,7 +149,7 @@ namespace CuePlayerForWPF
         {
             Task.Run(() =>
             {
-                MessageBox.Show(SysEnvInfo, "系统兼容性检查结果 & 客户机硬件信息", MessageBoxButton.OK, MessageBoxImage.Information); 
+                MessageBox.Show(SysEnvInfo, "系统兼容性检查结果 & 客户机硬件信息", MessageBoxButton.OK, MessageBoxImage.Information);
             });
         }
         private void GetSystemMemory()
@@ -283,7 +283,7 @@ namespace CuePlayerForWPF
         {
             Task.Run(() =>
             {
-                MessageBox.Show(checkHashResult, "资源哈希校验结果", MessageBoxButton.OK, MessageBoxImage.Information);  
+                MessageBox.Show(checkHashResult, "资源哈希校验结果", MessageBoxButton.OK, MessageBoxImage.Information);
             });
         }
     }
