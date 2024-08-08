@@ -19,9 +19,19 @@ namespace CuePlayerForWPF
     /// </summary>
     public partial class Theater : Window
     {
-        public Theater()
+        private Scripts scripts;
+        public Theater(Scripts scripts)
         {
             InitializeComponent();
+            this.scripts = scripts;
+        }
+
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                scripts.NextScript();
+            }
         }
     }
 }

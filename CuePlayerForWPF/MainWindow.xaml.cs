@@ -26,7 +26,10 @@ namespace CuePlayerForWPF
     {
         private string SysEnvInfo;
         private bool foundError = false;
+        private bool readyToPlay = false;
         public string checkHashResult;
+        private Scripts scripts;
+        private Theater theater;
 
         public MainWindow()
         {
@@ -35,7 +38,15 @@ namespace CuePlayerForWPF
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Init();
+            if (readyToPlay)
+            {
+                theater.Show();
+            }
+            else
+            {
+                Init();
+            }
+            
         }
 
         /// <summary>
@@ -48,12 +59,48 @@ namespace CuePlayerForWPF
             {
                 StatSysEnv.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFD4D4D4"));
                 StatResCheck.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFD4D4D4"));
-                StatResInit.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFD4D4D4"));
-                StatResPreLoad.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFD4D4D4"));
+                StatTheInit.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFD4D4D4"));
+                StatScrInit.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFD4D4D4"));
             });
             await SysEnvCheck();
             await ResCheck();
+            await LoadTheater();
+            await LoadScripts();
+            if (!foundError)
+            {
+                Dispatcher.Invoke(() =>
+                {
+                    InitOrStart.Content = "开始播放";
+                    readyToPlay = true;
+                });
+            }
+        }
 
+        private async Task LoadTheater()
+        {
+            await Task.Run(() => {
+                Dispatcher.Invoke(() =>
+                {
+                    scripts = new Scripts();
+                    theater = new Theater(scripts);
+                });
+                
+            });
+            Dispatcher.Invoke(() =>
+            {
+                StatTheInit.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF5DFF58"));
+            });
+        }
+        private async Task LoadScripts()
+        {
+            await Task.Run(() => {
+                scripts.Initialize(theater.VideoPlayer, theater.AudioPlayer, theater.SubtitlePlayer);
+                scripts.LoadScript();
+            });
+            Dispatcher.Invoke(() =>
+            {
+                StatScrInit.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF5DFF58"));
+            });
         }
 
         private async Task SysEnvCheck()
@@ -77,6 +124,7 @@ namespace CuePlayerForWPF
         private async Task ResCheck()
         {
             checkHashResult = "";
+            bool isUnespected = false;
             await Task.Run(() =>
             {
                 string programFolderPath = AppDomain.CurrentDomain.BaseDirectory;
@@ -98,6 +146,7 @@ namespace CuePlayerForWPF
                             {
                                 modifiedFiles.Add(relativePath);
                                 checkHashResult += "\n!!发现已修改资源: " + relativePath;
+                                isUnespected = true;
                             }
                             else
                             {
@@ -108,6 +157,7 @@ namespace CuePlayerForWPF
                         {
                             modifiedFiles.Add(relativePath); // 如果文件不在原始哈希列表中，也认为它被修改了
                             checkHashResult += "\n!!发现可能异常资源 (不在原始哈希列表中): " + relativePath;
+                            isUnespected = true;
                         }
                     }
                 }
@@ -119,9 +169,10 @@ namespace CuePlayerForWPF
                     {
                         missingFiles.Add(originalFile);
                         checkHashResult += "\n!!发现缺失资源: " + originalFile;
+                        isUnespected = true;
                     }
                 }
-                if (modifiedFiles.Count > 0 || missingFiles.Count > 0)
+                if (isUnespected)
                 {
                     foundError = true;
 
@@ -285,6 +336,14 @@ namespace CuePlayerForWPF
             {
                 MessageBox.Show(checkHashResult, "资源哈希校验结果", MessageBoxButton.OK, MessageBoxImage.Information);
             });
+        }
+
+        private void Label_MouseWheel(object sender, MouseWheelEventArgs e)
+        {
+            if (MessageBox.Show("确认强制允许播放？\n请确保已经初始化。", "你触发了奇怪的东西！", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                readyToPlay = true;
+            }
         }
     }
 }
