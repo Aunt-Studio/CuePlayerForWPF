@@ -20,6 +20,7 @@ namespace CuePlayerForWPF
     public partial class Theater : Window
     {
         private Scripts scripts;
+        private int escapeTimes = 0;
         public Theater(Scripts scripts)
         {
             InitializeComponent();
@@ -31,6 +32,17 @@ namespace CuePlayerForWPF
             if (e.Key == Key.Enter)
             {
                 scripts.NextScript();
+            } else if(e.Key == Key.Escape){
+                escapeTimes++;
+                if(escapeTimes == 5)
+                {
+                    esc.Visibility = Visibility.Visible;
+                }
+                else if (escapeTimes > 5)
+                {
+                    Close();
+                }
+                
             }
         }
     }

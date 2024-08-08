@@ -156,7 +156,7 @@ namespace CuePlayerForWPF
                         videoPlayer.Stop();
                         return;
                     }
-                    videoPlayer.Source = new Uri(currentItem.VideoPath, UriKind.Relative);
+                    videoPlayer.Source = new Uri("Assets\\" + currentItem.VideoPath, UriKind.Relative);
                     videoPlayer.Play();
                 }
 
@@ -167,7 +167,7 @@ namespace CuePlayerForWPF
                         audioPlayer.Stop();
                         return;
                     }
-                    audioPlayer.Source = new Uri(currentItem.AudioPath, UriKind.Relative);
+                    audioPlayer.Source = new Uri("Assets\\" + currentItem.AudioPath, UriKind.Relative);
                     audioPlayer.Play();
                 }
             }
