@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CuePlayerForWPF"
         mc:Ignorable="d"
-        Title="Theater" Background="{x:Null}" ResizeMode="NoResize" WindowState="Maximized" WindowStyle="None" Width="1920" Height="1080" KeyDown="Window_KeyDown">
+        Title="Theater" Background="{x:Null}" ResizeMode="NoResize" WindowState="Maximized" WindowStyle="None" Width="1920" Height="1080" KeyDown="Window_KeyDown" Topmost="True">
     <Grid>
-        <MediaElement x:Name="VideoPlayer" HorizontalAlignment="Left" Height="1080" VerticalAlignment="Top" Width="1920" UnloadedBehavior="Manual" ScrubbingEnabled="True" Stretch="UniformToFill"/>
+        <MediaElement x:Name="VideoPlayer" HorizontalAlignment="Left" Height="1080" VerticalAlignment="Top" Width="1920" UnloadedBehavior="Manual" ScrubbingEnabled="True" Stretch="UniformToFill" Cursor="None"/>
         <MediaElement x:Name="AudioPlayer" HorizontalAlignment="Left" Height="100" Margin="1816,0,0,0" VerticalAlignment="Top" Width="100" ScrollViewer.VerticalScrollBarVisibility="Disabled" Visibility="Hidden" UnloadedBehavior="Manual"/>
-        <TextBlock x:Name="SubtitlePlayer" HorizontalAlignment="Center" Height="145" Margin="0,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="1712" FontSize="48" Foreground="White" FontWeight="Bold" TextAlignment="Center" Text="我很好。"/>
+        <TextBlock x:Name="SubtitlePlayer" HorizontalAlignment="Center" Height="145" Margin="0,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="1712" FontSize="48" Foreground="White" FontWeight="Bold" TextAlignment="Center"/>
         <TextBlock x:Name="esc" HorizontalAlignment="Left" Margin="1726,1030,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="40" Width="184" Foreground="White" FontSize="24" Visibility="Hidden"><Run Language="zh-cn" Text="再按一次以退出"/></TextBlock>
 
     </Grid>
