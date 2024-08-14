@@ -1,11 +1,11 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34526.213
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CuePlayerForWPF", "CuePlayerForWPF\CuePlayerForWPF.csproj", "{D88177CC-2918-42F3-9100-5584C40DAD6D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CuePlayerForWPF", "CuePlayerForWPF\CuePlayerForWPF.csproj", "{D88177CC-2918-42F3-9100-5584C40DAD6D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HashGenerator", "HashGenerator\HashGenerator.csproj", "{9CC38C38-1884-4F54-89E4-2832E391DF83}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HashGenerator", "HashGenerator\HashGenerator.csproj", "{9CC38C38-1884-4F54-89E4-2832E391DF83}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
