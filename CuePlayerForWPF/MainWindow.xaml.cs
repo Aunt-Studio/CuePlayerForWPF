@@ -48,6 +48,7 @@ namespace CuePlayerForWPF
         /// <returns></returns>
         private async Task Init()
         {
+            foundError = false;
             Dispatcher.Invoke(() =>
             {
                 StatSysEnv.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFD4D4D4"));
