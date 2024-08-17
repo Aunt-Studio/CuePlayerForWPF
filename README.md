@@ -2,6 +2,11 @@
 
 这是一个开源、可自定义、安全完备且易用的舞台背景应用程序。
 
+> [!NOTE]  
+> 本分支的自定义需要修改源代码
+> 
+> 已有计划开发更加通用的分支，开发进度请见[dev 分支](https://github.com/Aunt-Studio/CuePlayerForWPF/tree/dev)
+
 ## 特性
 
 ✔ 台词展示
